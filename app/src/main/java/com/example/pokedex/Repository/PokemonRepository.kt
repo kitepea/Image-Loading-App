@@ -9,6 +9,7 @@ import javax.inject.Inject
 
 @ActivityScoped
 class PokemonRepository @Inject constructor(
+    // Request an instance of API in this repo -> look in the modules
     private val api: PokemonApi
 ) {
     suspend fun getPokemonList(limit: Int, offset: Int): Resource<PokemonList> {

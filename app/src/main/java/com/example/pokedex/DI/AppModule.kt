@@ -16,10 +16,11 @@ import javax.inject.Singleton
 object AppModule {
     @Singleton
     @Provides
-    fun providePokemonRepository(
-        api: PokemonApi
-    ) = PokemonRepository(api)
+    fun providePokemonRepository(api: PokemonApi): PokemonRepository = PokemonRepository(api)
 
+    @Singleton
+    @Provides
+    // Note: Found here, pass to the constructor behind the scene
     fun providePokemonApi(): PokemonApi {
         return Retrofit
             .Builder()
