@@ -20,9 +20,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             PokedexTheme {
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "pokemon_list_screen") {
+                NavHost(
+                    navController = navController,
+                    startDestination = "pokemon_list_screen"
+                ) {
                     composable("pokemon_list_screen") {
-
                     }
                     composable(
                         "pokemon_detail_screen/{dominantColor}/{pokemonName}",
@@ -35,6 +37,7 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     ) {
+                        // Stores and recalls the value of a variable across UI recompositions, enhancing performance by reducing redundant calculations.
                         val dominantColor = remember {
                             val color = it.arguments?.getInt("dominantColor")
                             color?.let { Color(it) }
