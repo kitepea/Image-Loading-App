@@ -16,7 +16,7 @@ import javax.inject.Singleton
 object AppModule {
     @Singleton
     @Provides
-    fun providePokemonRepository(api: PokemonApi): PokemonRepository = PokemonRepository(api)
+    fun providePokemonRepository(api: PokemonApi): PokemonRepository = PokemonRepository(api = api)
 
     @Singleton
     @Provides
